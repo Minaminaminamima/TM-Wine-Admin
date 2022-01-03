@@ -1,0 +1,4 @@
+*.DS_store
+
+./db.sqlite3
+./mysql.cnf
