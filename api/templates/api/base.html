@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Demo{% endblock %}</title>
+    <link rel="stylesheet" media="screen" type="text/css" href="../../static/api/css/style.css" />
+    <style>
+        .topnav {
+            top: 0;
+            height: 70px;
+            width: 100%;
+            position: fixed;
+            z-index:1;
+            background-color:#62cac7;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .topnav .center { 
+            display:flex;
+            align-items:center;
+        }
+
+        .topnav a {
+            text-align: center;
+            margin: 0px 5px 0px 5px;
+        }
+
+        a {
+            color:white;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        .sidemenu {
+            height: 90%;
+            width: 200px;
+            position: fixed;
+            z-index:1;
+            top: 68px;
+            left: 0;
+            background-color:#000f73;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidemenu li {
+            margin:10px;
+        }
+
+        .wrap_content {
+            margin-top: 70px;
+            margin-left: 210px;
+            margin-right: 10px;
+        }
+
+        ul {
+            list-style:none;
+            list-style-position: outside;
+        }
+
+        body, h1, h2, h3, h4, h5, h6, p, span {
+            margin: 0px;
+            font-family: "myfonts";
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="topnav">
+        <div class="center">
+            <div class="menu">
+                    <p>
+                        <a>
+                            <span style="color:red; font-weight:bold">KT </span>
+                            <span style="color:black">Hotel </span>
+                            <span style="color:white">admin page </span>
+                        </a>
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidemenu">
+        <ul>
+            <li>
+                    <a href="{% url 'api:order' %}">주문 목록</a>
+            </li>
+            <li>
+                        <a href="{% url 'api:storage' %}">재고 목록</a>
+            </li>
+        <ul>
+    </div>
+
+    <div class="wrap_content">
+        <div id="content" name="content" class="container">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+

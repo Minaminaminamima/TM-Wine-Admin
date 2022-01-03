@@ -1,0 +1,77 @@
+{% extends './base.html' %}
+
+{% block content %}
+<style>
+	.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family: 'myfonts';
+    min-width: 750px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+        background-color: #7cc8c7;;
+        color: #ffffff;
+        text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #7cc8c7;
+    }
+
+    button{
+        width:80px;
+        height: 30px;
+        color:#fff;
+        background: #ff4000;
+        font-size: 15px;
+        border:none;
+        border-radius: 20px;
+    }
+</style>
+<h3>ㅤㅤㅤ</h3>
+
+<table class="styled-table">
+    <thead>
+        <tr style="text-align: center;">
+            <th>주문시간</th>
+            <th>와인 이름</th>
+            <th>Room Number</th>
+            <th>확인</th>
+        </tr>
+    </thead>
+    <tbody>
+    <ol>
+    {% for orderlist in orderlists %}
+
+        <tr>
+            <td>{{ orderlist.주문시간 }}</td>
+            <td>{{ orderlist.와인이름 }}</td>
+            <td style="text-align: center;">{{ orderlist.룸넘버 }}</td>
+            <td style="text-align: center;">
+                <a href="{% url 'api:btn_click' orderlist.주문넘버 %}">
+                    <button>확인</button>
+                </a>
+                </td>
+        </tr>
+
+    {% endfor %}
+    </ol>
+    </tbody>
+</table>
+
+
+
+{% endblock  %}
