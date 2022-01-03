@@ -1,4 +1,7 @@
 *.DS_store
 
-./db.sqlite3
-./mysql.cnf
+/db.sqlite3
+/mysql.cn
+
+/api/migrations
+/api/__pycache__
