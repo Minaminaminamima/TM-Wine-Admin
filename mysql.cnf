@@ -1,0 +1,5 @@
+[client]
+database = Tmwine_admin
+host = localhost
+user = root
+password = 1234
