@@ -9,11 +9,10 @@ from .models import HotelWine
 from .models import orderlist
 
 #@api_view(['POST'])
-
 def order(request):
-    if request.method == 'POST':
-        wineName = request.POST['wineName']
-        roomNum = request.POST['roomNum']
+    if request.method == 'POST' :
+        wineName = request.POST.get('wineName', False)
+        roomNum = request.POST.get('roomNum', False)
 
         # 수정필요
         conn = pymysql.connect(host='localhost',
