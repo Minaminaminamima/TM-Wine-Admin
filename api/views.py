@@ -4,15 +4,18 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from django.http import HttpResponse, QueryDict
 import pymysql.cursors
+import json
 
 from .models import HotelWine
 from .models import orderlist
+from django.http import HttpResponse, QueryDict
 
 #@api_view(['POST'])
 def order(request):
     if request.method == 'POST' :
-        wineName = request.POST.get('wineName', False)
-        roomNum = request.POST.get('roomNum', False)
+        data = json.loads(request.body)
+        wineName = data.get('wineName', False)
+        roomNum = data.get('roomNum', False)
 
         # 수정필요
         conn = pymysql.connect(host='localhost',
